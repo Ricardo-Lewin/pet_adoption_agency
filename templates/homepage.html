@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <title>Lewin Adoption Center</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <h1 class="display-1">Lewin Adoption Center</h1>
+          {% for pet in pets %}
+          <img src="{{pet.photo_url}}" alt="picture of a {{pet.species}}" />
+
+          {% if pet.available %}
+          <p><a href="/{{pet.id}}">{{pet.name}}</a> is <b>available!</b></p>
+          {% else %}
+          <p>{{pet.name}} has been adopted!</p>
+          {% endif %} {% endfor %}
+          <a href="/add" class="btn btn-success">Add Pet!</a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
